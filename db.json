@@ -1,0 +1,29 @@
+{
+  "findAllEmployees": [
+    {
+      "firstName": "Jonny",
+      "lastName": "Doe",
+      "email": "john.doe@example.com"
+    },
+    {
+      "firstName": "Jane",
+      "lastName": "Smith",
+      "email": "jane.smith@example.com"
+    },
+    {
+      "firstName": "Robert",
+      "lastName": "Johnson",
+      "email": "robert.johnson@example.com"
+    },
+    {
+      "firstName": "Emily",
+      "lastName": "Davis",
+      "email": "emily.davis@example.com"
+    },
+    {
+      "firstName": "Mickki",
+      "lastName": "Brown",
+      "email": "michael.brown@example.com"
+    }
+  ]
+}
