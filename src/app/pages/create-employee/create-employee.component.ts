@@ -16,6 +16,7 @@ export class CreateEmployeeComponent {
   newEmployee: Employee = new Employee();
 
   employeeForm: FormGroup;
+
   constructor(private employeeService: EmployeeService, private router: Router) {
     this.employeeForm = new FormGroup({
       firstName: new FormControl('', [Validators.required, Validators.minLength(3)]),
@@ -23,6 +24,7 @@ export class CreateEmployeeComponent {
       email: new FormControl('', [Validators.required, Validators.email]),
     });
   }
+
   onSubmit() {
     if (this.employeeForm.valid) {
       this.newEmployee = this.employeeForm.value;
@@ -31,6 +33,7 @@ export class CreateEmployeeComponent {
       console.log('Form is invalid');
     }
   }
+
   saveEmployee() {
     this.employeeService.saveEmployee(this.newEmployee).subscribe({
       next: (response) => {
