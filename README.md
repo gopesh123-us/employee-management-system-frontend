@@ -2,6 +2,15 @@
 
 # Employee Management System Frontend
 
+## Features
+
+- Reative Forms
+- Bootstrap classes
+- Responsive pages
+- Frontend Angular 19
+- Backend Spring Boot 3
+- Project structure: monorepo
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
 
 ## Development server
