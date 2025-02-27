@@ -9,12 +9,16 @@ import { throwError } from 'rxjs';
   providedIn: 'root',
 })
 export class EmployeeService {
-  private baseUrl = 'http://localhost:8080/api/v1/findAllEmployees';
+  private baseUrl = 'http://localhost:8080';
   //private baseUrl = 'http://localhost:3000/findAllEmployees';
 
-  constructor(private httpClient: HttpClient) {}
+  constructor(private http: HttpClient) {}
 
   getEmployeesList(): Observable<Employee[]> {
-    return this.httpClient.get<Employee[]>(`${this.baseUrl}`);
+    return this.http.get<Employee[]>(`${this.baseUrl}/api/v1/findAllEmployees`);
+  }
+
+  saveEmployee(employee: Employee): Observable<Employee> {
+    return this.http.post<Employee>(`${this.baseUrl}/api/v1/saveEmployee`, employee);
   }
 }

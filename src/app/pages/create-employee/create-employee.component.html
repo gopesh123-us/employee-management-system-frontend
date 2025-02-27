@@ -1,7 +1,7 @@
 <div class="container py-4">
-  <h1 class="text-center mb-5">Create Employee</h1>
+  <h1 class="text-center mb-5">Add Employee</h1>
 
-  <form class="small-box mx-auto col-lg-4" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+  <form class="small-box mx-auto col-lg-4" [formGroup]="employeeForm" (ngSubmit)="onSubmit()">
     <div class="d-flex flex-column gap-3">
       <div class="">
         <div class="form-group">
@@ -9,9 +9,9 @@
           <label><span class="required">*</span>&nbsp;</label>
           <input type="text" id="firstName" formControlName="firstName" class="form-control" placeholder="First name here" />
         </div>
-        <div *ngIf="loginForm.get('firstName')!.invalid && loginForm.get('firstName')!.touched">
-          <small *ngIf="loginForm.get('firstName')!.hasError('required')">First name is required</small>
-          <small *ngIf="loginForm.get('firstName')!.hasError('minlength')">Minimum 3 characters</small>
+        <div *ngIf="employeeForm.get('firstName')!.invalid && employeeForm.get('firstName')!.touched">
+          <small *ngIf="employeeForm.get('firstName')!.hasError('required')">First name is required</small>
+          <small *ngIf="employeeForm.get('firstName')!.hasError('minlength')">Minimum 3 characters</small>
         </div>
       </div>
       <div class="">
@@ -20,9 +20,9 @@
           <label><span class="required">*</span>&nbsp;</label>
           <input type="text" id="lastName" formControlName="lastName" class="form-control" placeholder="Last name here" />
         </div>
-        <div *ngIf="loginForm.get('lastName')!.invalid && loginForm.get('lastName')!.touched">
-          <small *ngIf="loginForm.get('lastName')!.hasError('required')">Last name is required</small>
-          <small *ngIf="loginForm.get('lastName')!.hasError('minlength')">Minimum 3 characters</small>
+        <div *ngIf="employeeForm.get('lastName')!.invalid && employeeForm.get('lastName')!.touched">
+          <small *ngIf="employeeForm.get('lastName')!.hasError('required')">Last name is required</small>
+          <small *ngIf="employeeForm.get('lastName')!.hasError('minlength')">Minimum 3 characters</small>
         </div>
       </div>
       <div class="">
@@ -31,14 +31,14 @@
           <label><span class="required">*</span>&nbsp;</label>
           <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Email here" formControlName="email" />
         </div>
-        <div *ngIf="loginForm.get('email')!.invalid && loginForm.get('email')!.touched">
-          <small *ngIf="loginForm.get('email')!.hasError('required')">Email is required</small>
-          <small *ngIf="loginForm.get('email')!.hasError('email')">Enter value email address</small>
+        <div *ngIf="employeeForm.get('email')!.invalid && employeeForm.get('email')!.touched">
+          <small *ngIf="employeeForm.get('email')!.hasError('required')">Email is required</small>
+          <small *ngIf="employeeForm.get('email')!.hasError('email')">Enter value email address</small>
         </div>
         <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
       </div>
       <div class="">
-        <button type="submit" class="form-control btn btn-dark">Submit</button>
+        <button type="submit" class="form-control btn btn-dark" [disabled]="employeeForm.invalid">Save</button>
       </div>
     </div>
   </form>
