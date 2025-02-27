@@ -1,9 +1,9 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Employee } from '../models/employee';
 import { tap, catchError } from 'rxjs/operators';
-import { throwError } from 'rxjs';
+import { throwError, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +14,11 @@ export class EmployeeService {
 
   constructor(private http: HttpClient) {}
 
-  getEmployeesList(): Observable<Employee[]> {
-    return this.http.get<Employee[]>(`${this.baseUrl}/api/v1/findAllEmployees`);
+  getEmployeesList(page: number, size: number, sortby: string, direction: string): Observable<Employee[]> {
+    let params = new HttpParams();
+    params = params.set('page', page).set('size', size).set('sortby', sortby).set('direction', direction);
+
+    return this.http.get<any>(`${this.baseUrl}/api/v1/findAllEmployees`, { params }).pipe(map((data) => data.content));
   }
 
   saveEmployee(employee: Employee): Observable<Employee> {

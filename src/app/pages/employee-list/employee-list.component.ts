@@ -12,6 +12,10 @@ import { EmployeeService } from '../../shared/services/employee.service';
 })
 export class EmployeeListComponent implements OnInit {
   employees: Employee[] = [];
+  page = 0;
+  size = 10;
+  sortBy = 'firstName';
+  direction = 'asc';
 
   constructor(private employeeService: EmployeeService) {}
 
@@ -19,9 +23,24 @@ export class EmployeeListComponent implements OnInit {
     this.getEmployees();
   }
 
-  private getEmployees() {
-    this.employeeService.getEmployeesList().subscribe((data) => {
-      this.employees = data;
-    });
+  private getEmployees(): void {
+    console.log('page called: ' + this.page);
+    this.employeeService.getEmployeesList(this.page, this.size, this.sortBy, this.direction).subscribe(
+      (data) => {
+        this.employees = data;
+      },
+      (error) => console.log('Error getting employee list: ', error)
+    );
+  }
+
+  changePage(newPage: number) {
+    this.page = newPage;
+    this.getEmployees();
+  }
+
+  changeSorting(sortby: string, direction: string) {
+    this.sortBy = sortby;
+    this.direction = direction;
+    this.getEmployees();
   }
 }
