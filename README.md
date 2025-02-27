@@ -4,7 +4,7 @@
 
 ## Features
 
-- Reative Forms
+- Reactive Forms
 - Bootstrap classes
 - Responsive pages
 - Frontend Angular 19
