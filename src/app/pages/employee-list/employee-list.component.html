@@ -16,8 +16,10 @@
   </tbody>
 </table>
 <nav>
-  <button role="button" class="btn btn-secondary" (click)="changePage(page - 1)" [disabled]="page === 0">
+  <button role="button" class="btn btn-secondary" (click)="previousPage(page)" [disabled]="isFirstPage === true">
     Previous</button
   >&nbsp;
-  <button role="button" class="btn btn-secondary" (click)="changePage(page + 1)">Next</button>
+  <button role="button" class="btn btn-secondary" (click)="nextPage(page)" [disabled]="isLastPage === true">
+    Next
+  </button>
 </nav>

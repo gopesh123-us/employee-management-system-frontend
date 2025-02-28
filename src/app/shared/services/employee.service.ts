@@ -18,7 +18,7 @@ export class EmployeeService {
     let params = new HttpParams();
     params = params.set('page', page).set('size', size).set('sortby', sortby).set('direction', direction);
 
-    return this.http.get<any>(`${this.baseUrl}/api/v1/findAllEmployees`, { params }).pipe(map((data) => data.content));
+    return this.http.get<any>(`${this.baseUrl}/api/v1/entities`, { params });
   }
 
   saveEmployee(employee: Employee): Observable<Employee> {
